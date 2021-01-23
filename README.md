@@ -1,6 +1,6 @@
 ## Description
 
-Profile badge for codeforces & atcoder
+Profile badge for codeforces & atcoder & topcoder
 
 ## Installation
 
@@ -31,3 +31,9 @@ http://cutewisp.com:3000/v1/cf/{handle}
 http://cutewisp.com:3000/v1/ac/{handle}
 ```
 ![SS](http://cutewisp.com:3000/v1/ac/CuteWisp)
+
+* Topcoder
+```
+http://cutewisp.com:3000/v1/topcoder/{handle}
+```
+![SS](http://cutewisp.com:3000/v1/ac/handle)
