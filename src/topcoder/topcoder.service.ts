@@ -23,7 +23,13 @@ export class TopcoderService {
     async getTopcoderSvg(handle) {
         const obj = await this.getTopcoderInfo(handle);
         const handleTextLength = handle.length * 65;
-        const rating = obj["ratingSummary"][0]["rating"];
+        let idx = 0;
+        for (idx = 0; idx < obj["ratingSummary"].length; idx++) {
+            if (obj["ratingSummary"][idx].name === "Algorithm") {
+                break;
+            }
+        }
+        const rating = obj["ratingSummary"][idx]["rating"];
         const color = await this.getTopcoderColor(rating);
         return `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="301" height="20" role="img"
         aria-label="topcoder">
