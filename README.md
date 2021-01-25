@@ -36,4 +36,4 @@ http://api.cutewisp.com/v1/ac/{handle}
 ```
 http://api.cutewisp.com/v1/topcoder/{handle}
 ```
-![SS](http://api.cutewisp.com/v1/ac/handle)
+![SS](http://api.cutewisp.com/v1/topcoder/handle)
