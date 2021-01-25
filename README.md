@@ -22,18 +22,18 @@ $ yarn start:dev
 
 * Codeforce
 ```
-http://cutewisp.com:3000/v1/cf/{handle}
+http://api.cutewisp.com/v1/cf/{handle}
 ```
-![SS](http://cutewisp.com:3000/v1/cf/CuteWisp)
+![SS](http://api.cutewisp.com/v1/cf/CuteWisp)
 
 * atcoder
 ```
-http://cutewisp.com:3000/v1/ac/{handle}
+http://api.cutewisp.com/v1/ac/{handle}
 ```
-![SS](http://cutewisp.com:3000/v1/ac/CuteWisp)
+![SS](http://api.cutewisp.com/v1/ac/CuteWisp)
 
 * Topcoder
 ```
-http://cutewisp.com:3000/v1/topcoder/{handle}
+http://api.cutewisp.com/v1/topcoder/{handle}
 ```
-![SS](http://cutewisp.com:3000/v1/ac/handle)
+![SS](http://api.cutewisp.com/v1/ac/handle)
