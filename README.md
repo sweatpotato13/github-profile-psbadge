@@ -18,6 +18,14 @@ $ yarn start
 $ yarn start:dev
 ```
 
+## Using docker container
+```bash
+$ docker build -t psbadge . -f Dockerfile
+$ docker run -d -p 3000:3000 --name psbadge psbadge 
+```
+
+
+
 ## Example
 
 * Codeforce
