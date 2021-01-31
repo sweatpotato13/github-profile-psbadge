@@ -2,7 +2,7 @@
 # docker run -d -p 3000:3000 --name psbadge psbadge 
 
 ### BASE
-FROM node:14.13.1-alpine3.12 AS base
+FROM node:15.7.0-alpine3.10 AS base
 LABEL maintainer "CuteWisp <sweatpotato13@gmail.com>"
 # Set the working directory
 WORKDIR /app
