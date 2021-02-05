@@ -1,13 +1,13 @@
 import {
-    ExceptionFilter,
+    ArgumentsHost,
     Catch,
+    ExceptionFilter,
     HttpException,
-    ArgumentsHost
 } from "@nestjs/common";
-import { Request, Response } from "express";
 import { LoggerService } from "@src/logger/logger.service";
+import { Request, Response } from "express";
 
-@Catch()
+@Catch(HttpException)
 export class HttpExceptionFilter implements ExceptionFilter {
     constructor(private readonly logger: LoggerService) {}
 
@@ -19,14 +19,14 @@ export class HttpExceptionFilter implements ExceptionFilter {
 
         this.logger.error(exception.message, {
             code: exception.getStatus(),
-            context: "Exception"
+            context: "Exception",
         });
 
         response.status(status).json({
             statusCode: status,
             timestamp: new Date().toISOString(),
             message: exception.message,
-            path: request.url
+            path: request.url,
         });
     }
 }

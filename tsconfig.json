@@ -18,7 +18,8 @@
         "resolveJsonModule": true,
         "paths": {
             "@src/*": ["./src/*"],
-            "@config": ["./src/config"]
+            "@config": ["./src/config"],
+            "@domains": ["./src/domains/*"]
         }
     }
 }

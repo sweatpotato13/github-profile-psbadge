@@ -1,6 +1,6 @@
 import { Injectable } from "@nestjs/common";
-import { Logger, createLogger } from "winston";
 import rTracer from "cls-rtracer";
+import { createLogger, Logger } from "winston";
 
 @Injectable()
 export class LoggerService {

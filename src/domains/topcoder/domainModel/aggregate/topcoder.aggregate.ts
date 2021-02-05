@@ -1,9 +1,10 @@
 import { Injectable } from "@nestjs/common";
+import { ITopcoderUserInfo } from "@src/domains/topcoder/domainModel/interface/topcoder.interface";
 import * as fetch from "node-fetch";
 
 @Injectable()
-export class TopcoderService {
-    async getTopcoderColor(rating) {
+export class TopcoderAggregate {
+    getTopcoderColor(rating: number): string {
         if (rating < 900) return "#999999";
         else if (rating < 1200) return "#00A900";
         else if (rating < 1500) return "#6666FF";
@@ -11,7 +12,7 @@ export class TopcoderService {
         else return "#EE0000";
     }
 
-    async getTopcoderInfo(handle) {
+    async getTopcoderInfo(handle: string): Promise<ITopcoderUserInfo> {
         // Use Topcoder official API
         const response = await fetch(
             "http://api.topcoder.com/v2/users/" + handle
@@ -20,16 +21,16 @@ export class TopcoderService {
         return obj;
     }
 
-    async getTopcoderSvg(handle) {
+    async getTopcoderSvg(handle: string): Promise<string> {
         const obj = await this.getTopcoderInfo(handle);
+        console.log(obj);
         const handleTextLength = handle.length * 65;
-        let idx = 0;
-        for (idx = 0; idx < obj["ratingSummary"].length; idx++) {
-            if (obj["ratingSummary"][idx].name === "Algorithm") {
-                break;
+        let rating = 0;
+        obj.ratingSummary.forEach(element => {
+            if (element.name == "Algorithm") {
+                rating = element.rating;
             }
-        }
-        const rating = obj["ratingSummary"][idx]["rating"];
+        });
         const color = await this.getTopcoderColor(rating);
         return `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="301" height="20" role="img"
         aria-label="topcoder">

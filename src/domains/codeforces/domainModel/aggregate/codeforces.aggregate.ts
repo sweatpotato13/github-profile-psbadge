@@ -1,24 +1,38 @@
 import { Injectable } from "@nestjs/common";
+import { ICodeforceUserInfo } from "@src/domains/codeforces/domainModel/interface/codeforces.interface";
 import * as fetch from "node-fetch";
 
 @Injectable()
-export class AtcoderService {
-    async getAtCoderInfo(handle): Promise<string> {
-        // https://github.com/miozune/AtCoderUsersAPI
+export class CodeforcesAggregate {
+    getCodeforcesColor(rank: string): string {
+        if (rank === "legendary grandmaster") return "#ff0000";
+        if (rank === "international grandmaster") return "#ff0000";
+        if (rank === "grandmaster") return "#ff0000";
+        if (rank === "international master") return "#ff8c00";
+        if (rank === "master") return "#ff8c00";
+        if (rank === "candidate master") return "#aa00aa";
+        if (rank === "expert") return "#0000ff";
+        if (rank === "specialist") return "#03a89e";
+        if (rank === "pupil") return "#008000";
+        if (rank === "newbie") return "#808080";
+    }
+
+    async getCodeforcesInfo(handle: string): Promise<ICodeforceUserInfo> {
+        // Use Codeforce official API
         const response = await fetch(
-            "https://us-central1-atcoderusersapi.cloudfunctions.net/api/info/username/" +
-                handle
+            "http://codeforces.com/api/user.info?handles=" + handle
         );
         const obj = await response.json();
+        console.log(obj);
         return obj;
     }
 
-    async getAtcoderSvg(handle) {
-        const obj = await this.getAtCoderInfo(handle);
-        console.log(obj);
+    async getCodeforcesSvg(handle: string): Promise<string> {
+        const obj = await this.getCodeforcesInfo(handle);
         const handleTextLength = handle.length * 65;
-        const color = obj["data"]["user_color"];
-        const rating = obj["data"]["rating"];
+        const rank = obj.result[0].rank;
+        const rating = obj.result[0].rating;
+        const color = await this.getCodeforcesColor(rank);
         return `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="301" height="20" role="img"
         aria-label="codeforces">
         <title>codeforces</title>
@@ -37,8 +51,8 @@ export class AtcoderService {
         </g>
         <g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif"
             text-rendering="geometricPrecision" font-size="110">
-            <text aria-hidden="true" x="355" y="150" fill="#010101" fill-opacity=".3" transform="scale(.1)" textLength="590">AtCoder</text>
-                <text x="355" y="140" transform="scale(.1)" fill="#fff" textLength="590">AtCoder</text>
+            <text aria-hidden="true" x="355" y="150" fill="#010101" fill-opacity=".3" transform="scale(.1)" textLength="590">codeforces</text>
+                <text x="355" y="140" transform="scale(.1)" fill="#fff" textLength="590">codeforces</text>
                 <text aria-hidden="true" x="1660" y="150" fill="#010101" fill-opacity=".0" transform="scale(.1)" textLength="610">${handle}</text>
                 <text x="1660" y="140" transform="scale(.1)" fill="#fff" textLength="${handleTextLength}">${handle}</text>
                 <text aria-hidden="true" x="2800" y="150" fill="#010101" fill-opacity=".3" transform="scale(.1)" textLength="310">${rating}</text>

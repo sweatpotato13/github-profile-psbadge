@@ -1,6 +1,5 @@
 import { Controller, Get, Header, Param } from "@nestjs/common";
-
-import { CodeforcesService } from "./codeforces.service";
+import { CodeforcesService } from "@src/domains/codeforces/application/services/codeforces.service";
 
 @Controller("cf")
 export class CodeforcesController {
@@ -8,7 +7,7 @@ export class CodeforcesController {
 
     @Get(":handle")
     @Header("content-type", "image/svg+xml")
-    async getApi(@Param() params) {
-        return this.codeforcesService.getCodeforcesSvg(params.handle);
+    async getApi(@Param("handle") handle): Promise<string> {
+        return this.codeforcesService.getCodeforcesSvg(handle);
     }
 }

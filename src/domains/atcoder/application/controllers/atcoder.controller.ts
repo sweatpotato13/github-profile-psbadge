@@ -1,6 +1,5 @@
 import { Controller, Get, Header, Param } from "@nestjs/common";
-
-import { AtcoderService } from "./atcoder.service";
+import { AtcoderService } from "@src/domains/atcoder/application/services/atcoder.service";
 
 @Controller("ac")
 export class AtcoderController {
@@ -8,7 +7,7 @@ export class AtcoderController {
 
     @Get(":handle")
     @Header("content-type", "image/svg+xml")
-    async getApi(@Param() params) {
-        return this.atcoderService.getAtcoderSvg(params.handle);
+    async getApi(@Param("handle") handle: string): Promise<string> {
+        return this.atcoderService.getAtcoderSvg(handle);
     }
 }

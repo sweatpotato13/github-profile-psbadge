@@ -1,14 +1,13 @@
 import { Controller, Get, Header, Param } from "@nestjs/common";
+import { TopcoderService } from "@src/domains/topcoder/application/services/topcoder.service";
 
-import { TopcoderService } from "./topcoder.service";
-
-@Controller("topcoder")
+@Controller("tc")
 export class TopcoderController {
     constructor(private topcoderService: TopcoderService) {}
 
     @Get(":handle")
     @Header("content-type", "image/svg+xml")
-    async getApi(@Param() params) {
-        return this.topcoderService.getTopcoderSvg(params.handle);
+    async getApi(@Param("handle") handle): Promise<string> {
+        return this.topcoderService.getTopcoderSvg(handle);
     }
 }

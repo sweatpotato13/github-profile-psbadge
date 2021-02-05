@@ -24,24 +24,22 @@ $ docker build -t psbadge . -f Dockerfile
 $ docker run -d -p 3000:3000 --name psbadge psbadge 
 ```
 
-
-
 ## Example
 
 * Codeforce
 ```
-http://api.cutewisp.com/v1/cf/{handle}
+http://api.cutewisp.com/v1.0/cf/{handle}
 ```
-![SS](http://api.cutewisp.com/v1/cf/CuteWisp)
+![SS](http://api.cutewisp.com/v1.0/cf/CuteWisp)
 
 * atcoder
 ```
-http://api.cutewisp.com/v1/ac/{handle}
+http://api.cutewisp.com/v1.0/ac/{handle}
 ```
-![SS](http://api.cutewisp.com/v1/ac/CuteWisp)
+![SS](http://api.cutewisp.com/v1.0/ac/CuteWisp)
 
 * Topcoder
 ```
-http://api.cutewisp.com/v1/topcoder/{handle}
+http://api.cutewisp.com/v1.0/tc/{handle}
 ```
-![SS](http://api.cutewisp.com/v1/topcoder/handle)
+![SS](http://api.cutewisp.com/v1.0/tc/handle)
