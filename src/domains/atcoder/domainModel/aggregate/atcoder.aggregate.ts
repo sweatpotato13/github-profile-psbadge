@@ -5,20 +5,27 @@ import * as fetch from "node-fetch";
 @Injectable()
 export class AtcoderAggregate {
     async getAtCoderInfo(handle: string): Promise<IAtcoderUserInfo> {
-        // https://github.com/miozune/AtCoderUsersAPI
-        const response = await fetch(
-            "https://us-central1-atcoderusersapi.cloudfunctions.net/api/info/username/" +
-                handle
-        );
+        const response = await fetch("http://localhost:5000/v1.0/ac/" + handle);
         const obj = await response.json();
         return obj;
+    }
+    
+    getAtCoderColor(rating: number): string {
+        if (rating < 400) return "#808080";
+        else if (rating < 800) return "#804000";
+        else if (rating < 1200) return "#008000";
+        else if (rating < 1600) return "#00C0C0";
+        else if (rating < 2000) return "#0000FF";
+        else if (rating < 2400) return "#C0C000";
+        else if (rating < 2800) return "#FF8000";
+        else return "#FF0000";
     }
 
     async getAtcoderSvg(handle: string): Promise<string> {
         const obj = await this.getAtCoderInfo(handle);
         const handleTextLength = handle.length * 65;
-        const color = obj.data.user_color;
-        const rating = obj.data.rating;
+        const rating = obj.userinfo[0].rating;
+        const color = this.getAtCoderColor(rating);
         return `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="301" height="20" role="img"
         aria-label="codeforces">
         <title>codeforces</title>
