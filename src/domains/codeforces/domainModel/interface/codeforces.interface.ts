@@ -1,3 +1,5 @@
+import { codeforcesIcon } from "@src/asset/icon";
+
 export interface ICodeforceUserInfo {
     status: string;
     result: IData[];
@@ -25,21 +27,11 @@ export interface IData {
     titlePhoto: string;
 }
 
-export const codeforcesIcon = `<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24">
-<style type="text/css">
-    .st0{fill:#AE0F0A;}
-    .st1{fill:#4F81C1;}
-    .st2{fill:#FFD400;}
-</style>
-<path class="st0" d="M22.5,10.5c0.8,0,1.5,0.7,1.5,1.5v7.5c0,0.8-0.7,1.5-1.5,1.5h-3c-0.8,0-1.5-0.7-1.5-1.5V12c0-0.8,0.7-1.5,1.5-1.5H22.5z"/>
-<path class="st1" d="M13.5,3C14.3,3,15,3.7,15,4.5v15c0,0.8-0.7,1.5-1.5,1.5h-3C9.7,21,9,20.3,9,19.5v-15C9,3.7,9.7,3,10.5,3H13.5z"/>
-<path class="st2" d="M4.5,7.5C5.3,7.5,6,8.2,6,9v10.5C6,20.3,5.3,21,4.5,21h-3C0.7,21,0,20.3,0,19.5V9c0-0.8,0.7-1.5,1.5-1.5H4.5z"/>
-</svg>`
-
 export class Card {
     width: number;
     height: number;
     user: IData;
+    color: string;
 
     constructor({ width = 420, height = 200, user }) {
         this.width = width;
@@ -47,7 +39,21 @@ export class Card {
         this.user = user;
     }
 
+    getCodeforcesColor(rank: string): string {
+        if (rank === "legendary grandmaster") return "#FF0000";
+        if (rank === "international grandmaster") return "#FF0000";
+        if (rank === "grandmaster") return "#FF0000";
+        if (rank === "international master") return "#FF8C00";
+        if (rank === "master") return "#FF8C00";
+        if (rank === "candidate master") return "#AA00AA";
+        if (rank === "expert") return "#0000FF";
+        if (rank === "specialist") return "#03A89E";
+        if (rank === "pupil") return "#008000";
+        if (rank === "newbie") return "#808080";
+    }
+
     render() {
+        const color = this.getCodeforcesColor(this.user.rank);
         return `<svg
           width="${this.width}"
           height="${this.height}"
@@ -102,7 +108,7 @@ export class Card {
             font-weight: 600;
             font-size: 20px;
             text-align: left;
-            color: blue;
+            color: ${color};
           }
         </style>
         <rect
@@ -112,7 +118,7 @@ export class Card {
           rx="4.5"
           height="99%"
           width="99%"
-          stroke="#FF0000"
+          stroke="${color}"
           stroke-width = "2"
           fill="#FFFEFE"
         />
@@ -124,7 +130,11 @@ export class Card {
           <g transform="translate(135, 28)">
             <foreignObject width="200" height="100">
               <xhtml:span class="organization">
-                ${this.user.organization === undefined ? "No organization" : this.user.organization}
+                ${
+                    this.user.organization === undefined
+                        ? "No organization"
+                        : this.user.organization
+                }
               </xhtml:span>
             </foreignObject>
           </g>

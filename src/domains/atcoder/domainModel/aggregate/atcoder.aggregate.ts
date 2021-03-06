@@ -9,7 +9,7 @@ export class AtcoderAggregate {
         const obj = await response.json();
         return obj;
     }
-    
+
     getAtCoderColor(rating: number): string {
         if (rating < 400) return "#808080";
         else if (rating < 800) return "#804000";
