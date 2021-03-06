@@ -27,18 +27,18 @@ $ docker run -d -p 3000:3000 --name psbadge sweatpotato/psbadge
 
 * Codeforce
 ```
-http://api.cutewisp.com/v1.0/cf/{handle}
+http://api.cutewisp.com/v2.0/cf/{handle}
 ```
-![SS](http://api.cutewisp.com/v1.0/cf/CuteWisp)
+![SS](http://api.cutewisp.com/v2.0/cf/CuteWisp)
 
 * atcoder
 ```
-http://api.cutewisp.com/v1.0/ac/{handle}
+http://api.cutewisp.com/v2.0/ac/{handle}
 ```
-![SS](http://api.cutewisp.com/v1.0/ac/CuteWisp)
+![SS](http://api.cutewisp.com/v2.0/ac/CuteWisp)
 
 * Topcoder
 ```
-http://api.cutewisp.com/v1.0/tc/{handle}
+http://api.cutewisp.com/v2.0/tc/{handle}
 ```
-![SS](http://api.cutewisp.com/v1.0/tc/handle)
+![SS](http://api.cutewisp.com/v2.0/tc/handle)

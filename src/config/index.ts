@@ -9,7 +9,7 @@ export const config = {
     appName: process.env.APP_NAME || "github-profile-psbadge",
     appTitle: process.env.APP_TITLE || "github-profile-psbadge",
     appDescription: process.env.APP_DESCRIPTION || "github-profile-psbadge",
-    apiVersion: process.env.API_VERSION || "1.0",
+    apiVersion: process.env.API_VERSION || "2.0",
 
     host: process.env.HOST || "0.0.0.0",
     port: parseInt(process.env.PORT) || 3000,
