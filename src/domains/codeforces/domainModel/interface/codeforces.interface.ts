@@ -31,7 +31,6 @@ export class Card {
     width: number;
     height: number;
     user: IData;
-    color: string;
 
     constructor({ width = 420, height = 200, user }) {
         this.width = width;
