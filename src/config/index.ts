@@ -12,5 +12,7 @@ export const config = {
     apiVersion: process.env.API_VERSION || "2.0",
 
     host: process.env.HOST || "0.0.0.0",
-    port: parseInt(process.env.PORT) || 3000,
+    port: parseInt(process.env.PORT) || 4000,
+
+    atCoderApiEndpoint: process.env.ATCODER_API_ENDPOINT || "0.0.0.0",
 };

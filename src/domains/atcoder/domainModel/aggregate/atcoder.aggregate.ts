@@ -1,4 +1,5 @@
-import { Injectable } from "@nestjs/common";
+import { BadRequestException, Injectable } from "@nestjs/common";
+import { config } from "@src/config";
 import {
     Card,
     IAtcoderUserInfo,
@@ -8,9 +9,13 @@ import * as fetch from "node-fetch";
 @Injectable()
 export class AtcoderAggregate {
     async getAtCoderInfo(handle: string): Promise<IAtcoderUserInfo> {
-        const response = await fetch("http://localhost:5000/v1.0/ac/" + handle);
-        const obj = await response.json();
-        return obj;
+       return fetch(`${config.atCoderApiEndpoint}${handle}`)
+       .then(response => {
+         if (!response.ok) {
+           throw new Error(response.statusText)
+         }
+         return response.json();
+       })
     }
 
     async getAtcoderSvg(handle: string): Promise<string> {

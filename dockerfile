@@ -1,5 +1,5 @@
 # docker build -t psbadge . -f Dockerfile
-# docker run -d -p 3000:3000 --name psbadge psbadge 
+# docker run -d -p 4000:4000 --name psbadge psbadge 
 
 ### BASE
 FROM node:15.7.0-alpine3.10 AS base

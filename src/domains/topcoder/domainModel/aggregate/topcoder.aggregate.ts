@@ -9,16 +9,18 @@ import * as fetch from "node-fetch";
 export class TopcoderAggregate {
     async getTopcoderInfo(handle: string): Promise<ITopcoderUserInfo> {
         // Use Topcoder official API
-        const response = await fetch(
-            "http://api.topcoder.com/v2/users/" + handle
-        );
-        const obj = await response.json();
-        return obj;
+        return fetch("http://api.topcoder.com/v2/users/" + handle)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(response.statusText)
+          }
+          return response.json();
+        })
+ 
     }
 
     async getTopcoderSvg(handle: string): Promise<string> {
         const obj = await this.getTopcoderInfo(handle);
-        console.log(obj);
         const card = new Card({ user: obj });
         return card.render();
     }
