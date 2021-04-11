@@ -20,7 +20,8 @@ export class AtcoderAggregate {
 
     async getAtcoderSvg(handle: string): Promise<string> {
         const obj = await this.getAtCoderInfo(handle);
-        const card = new Card({ user: obj.userinfo[0] });
+        console.log(obj);
+        const card = new Card({ user: obj });
         return card.render();
     }
 }

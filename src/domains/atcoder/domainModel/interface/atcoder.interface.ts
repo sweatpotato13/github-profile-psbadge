@@ -1,7 +1,4 @@
 export interface IAtcoderUserInfo {
-    userinfo: IData[];
-}
-export interface IData {
     birth: number;
     highest: number;
     match: number;
@@ -14,7 +11,7 @@ export interface IData {
 export class Card {
     width: number;
     height: number;
-    user: IData;
+    user: IAtcoderUserInfo;
 
     constructor({ width = 420, height = 200, user }) {
         this.width = width;
