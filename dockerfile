@@ -19,6 +19,7 @@ FROM base AS development
 # Copy app sources
 COPY ./dist ./dist
 COPY ./package.json .
+COPY ./.env .
 # Copy dependencies
 COPY --from=dependencies /tmp/node_modules ./node_modules
 
