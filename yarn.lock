@@ -616,13 +616,13 @@
     fs-extra "9.0.1"
     pluralize "8.0.0"
 
-"@nestjs/testing@^7.5.1":
-  version "7.5.5"
-  resolved "https://registry.yarnpkg.com/@nestjs/testing/-/testing-7.5.5.tgz#510198af70e4d260907687ee7c9c98642ecfbb75"
-  integrity sha512-6CrDiwtFcMS4kjFFS1pm/0f00ji+32xOlKmojPaNLhmhPw39l5W/5R78iW9g6tFY/Qvm5zpbWz/FKaHxFJYOpQ==
+"@nestjs/testing@^7.6.15":
+  version "7.6.15"
+  resolved "https://registry.yarnpkg.com/@nestjs/testing/-/testing-7.6.15.tgz#eed34846a8b2b5ddb0ff6bd74cdcb4344c364c40"
+  integrity sha512-AWr8stnRoS0yCU/EotAJKveYXm1XSB4ZT+ReqFDXhPyqC1ppOfU+zZuCjQlQHorMzidsVHsAstK5/rUsXnrZUQ==
   dependencies:
     optional "0.1.4"
-    tslib "2.0.3"
+    tslib "2.1.0"
 
 "@nodelib/fs.scandir@2.1.3":
   version "2.1.3"
