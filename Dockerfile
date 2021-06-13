@@ -20,6 +20,10 @@ COPY ./tsconfig.json .
 COPY ./package.json .
 COPY ./tsconfig-paths-bootstrap.js .
 COPY ./node_modules ./node_modules
+
+# If you using without k8s, remove #
+#COPY ./.env .
+
 # Copy dependencies
 #COPY --from=dependencies /tmp/node_modules ./node_modules
 

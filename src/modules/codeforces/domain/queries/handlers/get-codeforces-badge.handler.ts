@@ -1,5 +1,5 @@
 import { QueryHandler, IQueryHandler } from "@nestjs/cqrs";
-import { CodeforcesCard } from "@src/modules/Codeforces/infra/svgs/Codeforces-card";
+import { CodeforcesCard } from "@src/modules/codeforces/infra/svgs/codeforces-card";
 import { LoggerService } from "@src/shared/services";
 import { GetCodeforcesBadgeDto } from "../../dtos/get-codeforces-badge.dto";
 import { GetCodeforcesBadgeQuery } from "../impl/get-codeforces-badge.query";

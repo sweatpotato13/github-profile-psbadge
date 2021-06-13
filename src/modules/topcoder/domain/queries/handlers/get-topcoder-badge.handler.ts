@@ -1,5 +1,5 @@
 import { QueryHandler, IQueryHandler } from "@nestjs/cqrs";
-import { TopcoderCard } from "@src/modules/Topcoder/infra/svgs/Topcoder-card";
+import { TopcoderCard } from "@src/modules/topcoder/infra/svgs/topcoder-card";
 import { LoggerService } from "@src/shared/services";
 import { GetTopcoderBadgeDto } from "../../dtos/get-topcoder-badge.dto";
 import { GetTopcoderBadgeQuery } from "../impl/get-topcoder-badge.query";
