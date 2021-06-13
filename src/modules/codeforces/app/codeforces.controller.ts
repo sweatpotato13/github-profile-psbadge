@@ -11,6 +11,7 @@ export class CodeforcesController {
     ) {}
 
     @Get(":handle")
+    @Header("content-type", "image/svg+xml")
     async getBadge(@Param("handle") handle: string): Promise<any> {
         try {
             const result = await this._service.getBadge(handle);
