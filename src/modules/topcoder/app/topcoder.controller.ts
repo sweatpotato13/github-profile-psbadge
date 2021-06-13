@@ -1,4 +1,4 @@
-import { Controller, Get, Inject, Param } from "@nestjs/common";
+import { Controller, Get, Header, Inject, Param } from "@nestjs/common";
 import { ErrorResponse } from "@src/shared/models/responses";
 import { ErrorCodes } from "@src/shared/constants";
 import { ITopcoderService } from "../domain/interfaces/topcoder.interface";

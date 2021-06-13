@@ -1,4 +1,4 @@
-import { Controller, Get, Inject, Param } from "@nestjs/common";
+import { Controller, Get, Header, Inject, Param } from "@nestjs/common";
 import { ErrorResponse } from "@src/shared/models/responses";
 import { ErrorCodes } from "@src/shared/constants";
 import { IAtcoderService } from "../domain/interfaces/atcoder.interface";
@@ -10,6 +10,7 @@ export class AtcoderController {
     ) {}
 
     @Get(":handle")
+    @Header("content-type", "image/svg+xml")
     async getBadge(@Param("handle") handle: string): Promise<any> {
         try {
             const result = await this._service.getBadge(handle);
