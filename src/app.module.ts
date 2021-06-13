@@ -1,24 +1,28 @@
 import { Module } from "@nestjs/common";
 import { APP_FILTER, APP_INTERCEPTOR } from "@nestjs/core";
-
-import { HttpExceptionFilter } from "./common/filters/http-exception.filter";
-import { LoggingInterceptor } from "./common/interceptors/logging.interceptor";
-import { AtcoderModule } from "./domains/atcoder/atcoder.module";
-import { CodeforcesModule } from "./domains/codeforces/codeforces.module";
-import { TopcoderModule } from "./domains/topcoder/topcoder.module";
-import { LoggerModule } from "./logger/logger.module";
+import { LoggingInterceptor } from "@common/interceptors/logging.interceptor";
+import { AtcoderModule } from "./modules/atcoder/atcoder.module";
+import { BadRequestExceptionFilter } from "./common/filters/bad-request-exception.filter";
+import { CodeforcesModule } from "./modules/codeforces/codeforces.module";
+import { TopcoderModule } from "./modules/topcoder/topcoder.module";
 
 @Module({
-    imports: [LoggerModule, CodeforcesModule, AtcoderModule, TopcoderModule],
+    imports: [
+        /** ------------------ */
+        AtcoderModule,
+        CodeforcesModule,
+        TopcoderModule
+    ],
+    controllers: [],
     providers: [
         {
             provide: APP_INTERCEPTOR,
-            useClass: LoggingInterceptor,
+            useClass: LoggingInterceptor
         },
         {
             provide: APP_FILTER,
-            useClass: HttpExceptionFilter,
-        },
-    ],
+            useClass: BadRequestExceptionFilter
+        }
+    ]
 })
 export class AppModule {}

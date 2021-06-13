@@ -1,9 +1,0 @@
-version: '3'
-services:
-    psbadge:
-        container_name: psbadge
-        build:
-            dockerfile: Dockerfile
-            context: ./
-        ports:
-            - ${PORT}:${PORT}

@@ -15,11 +15,12 @@
         "outDir": "./dist",
         "baseUrl": "./",
         "incremental": true,
-        "resolveJsonModule": true,
         "paths": {
             "@src/*": ["./src/*"],
+            "@common/*": ["./src/common/*"],
+            "@shared/*": ["./src/shared/*"],
             "@config": ["./src/config"],
-            "@domains": ["./src/domains/*"]
+            "@modules/*": ["./src/modules/*"]
         }
     }
 }
