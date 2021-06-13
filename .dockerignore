@@ -10,8 +10,5 @@ pids
 *.seed
 *.pid.lock
 
-# Dependency directories
-node_modules/
-
 # 0x directories
 *.0x/

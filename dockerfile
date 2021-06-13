@@ -1,26 +1,29 @@
-# docker build -t psbadge . -f Dockerfile
-# docker run -d -p 4000:4000 --name psbadge psbadge 
-
+# If you want to create a docker image of the current version, you must do a yarn build beforehand and build the docker file.
 ### BASE
-FROM node:15.7.0-alpine3.10 AS base
-LABEL maintainer "CuteWisp <sweatpotato13@gmail.com>"
+FROM node:14.13.1-alpine3.12 AS base
+LABEL maintainer "Cute_Wisp <sweatpotato13@gmail.com>"
 # Set the working directory
 WORKDIR /app
 # Copy project specification and dependencies lock files
-COPY package.json yarn.lock /tmp/
+COPY package.json yarn.lock tsconfig.json /tmp/
 
 ### DEPENDENCIES
 FROM base AS dependencies
 # Install Node.js dependencies
-RUN cd /tmp && yarn --pure-lockfile --production
+#RUN cd /tmp && yarn --ignore-engines
 
 ### RELEASE
 FROM base AS development
 # Copy app sources
 COPY ./dist ./dist
+COPY ./tsconfig.json .
 COPY ./package.json .
-COPY ./.env .
+COPY ./tsconfig-paths-bootstrap.js .
+COPY ./node_modules ./node_modules
 # Copy dependencies
-COPY --from=dependencies /tmp/node_modules ./node_modules
+#COPY --from=dependencies /tmp/node_modules ./node_modules
+
+# Expose application port
+EXPOSE 8000
 
 CMD ["yarn", "start:prod"]

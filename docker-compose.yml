@@ -1,0 +1,28 @@
+version: "3"
+services:
+    mongo:
+        image: mongo
+        container_name: mongo
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: ${MONGODB_USER}
+            MONGO_INITDB_ROOT_PASSWORD: ${MONGODB_PW}
+        ports:
+            - ${MONGODB_PORT}:27017
+    mongo-express:
+        image: mongo-express
+        container_name: mongo-express
+        environment:
+            ME_CONFIG_MONGODB_ADMINUSERNAME: ${MONGODB_USER}
+            ME_CONFIG_MONGODB_ADMINPASSWORD: ${MONGODB_PW}
+        ports:
+            - ${MONGOEXPRESS_PORT}:8081
+    psbadge:
+        container_name: psbadge
+        restart: always
+        depends_on:
+            - postgres
+        build:
+            dockerfile: Dockerfile
+            context: ./
+        ports:
+            - ${PORT}:8000
