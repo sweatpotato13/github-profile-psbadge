@@ -1,30 +1,31 @@
+import { atcoderIcon } from "@src/shared/constants/icon";
 import { GetAtcoderBadgeDto } from "../../domain/dtos/get-atcoder-badge.dto";
 
 export class AtcoderCard {
-    width: number;
-    height: number;
-    user: GetAtcoderBadgeDto;
+  width: number;
+  height: number;
+  user: GetAtcoderBadgeDto;
 
-    constructor({ width = 420, height = 200, user }) {
-        this.width = width;
-        this.height = height;
-        this.user = user;
-    }
+  constructor({ width = 420, height = 200, user }) {
+    this.width = width;
+    this.height = height;
+    this.user = user;
+  }
 
-    getAtCoderColor(rating: number): string {
-        if (rating < 400) return "#808080";
-        else if (rating < 800) return "#804000";
-        else if (rating < 1200) return "#008000";
-        else if (rating < 1600) return "#00C0C0";
-        else if (rating < 2000) return "#0000FF";
-        else if (rating < 2400) return "#C0C000";
-        else if (rating < 2800) return "#FF8000";
-        else return "#FF0000";
-    }
+  getAtCoderColor(rating: number): string {
+    if (rating < 400) return "#808080";
+    else if (rating < 800) return "#804000";
+    else if (rating < 1200) return "#008000";
+    else if (rating < 1600) return "#00C0C0";
+    else if (rating < 2000) return "#0000FF";
+    else if (rating < 2400) return "#C0C000";
+    else if (rating < 2800) return "#FF8000";
+    else return "#FF0000";
+  }
 
-    render() {
-        const color = this.getAtCoderColor(this.user.rating);
-        return `<svg
+  render() {
+    const color = this.getAtCoderColor(this.user.rating);
+    return `<svg
           width="${this.width}"
           height="${this.height}"
           viewBox="0 0 ${this.width} ${this.height}"
@@ -93,7 +94,9 @@ export class AtcoderCard {
           fill="#FFFEFE"
         />
         <g class="profile" data-testid="card-title" transform="translate(20, 20)">
-        <image href="https://img.atcoder.jp/assets/atcoder.png" x="-5" y="20" height="120" width="120"/>
+        <foreignObject class="icon" width="100" height="100" x="8" y="20">
+          ${atcoderIcon}
+        </foreignObject>
           <text x="135" y="20.5" class="header">${this.user.user}</text>
           <g transform="translate(135, 28)">
           </g>
@@ -113,5 +116,5 @@ export class AtcoderCard {
           </foreignObject>
         </g>
         </svg>`;
-    }
+  }
 }
