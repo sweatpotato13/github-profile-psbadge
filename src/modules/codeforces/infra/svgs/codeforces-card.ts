@@ -2,32 +2,32 @@ import { codeforcesIcon } from "@src/shared/constants";
 import { GetCodeforcesBadgeDto } from "../../domain/dtos/get-codeforces-badge.dto";
 
 export class CodeforcesCard {
-    width: number;
-    height: number;
-    user: GetCodeforcesBadgeDto;
+  width: number;
+  height: number;
+  user: GetCodeforcesBadgeDto;
 
-    constructor({ width = 420, height = 200, user }) {
-        this.width = width;
-        this.height = height;
-        this.user = user;
-    }
+  constructor({ width = 420, height = 200, user }) {
+    this.width = width;
+    this.height = height;
+    this.user = user;
+  }
 
-    getCodeforcesColor(rank: string): string {
-        if (rank === "legendary grandmaster") return "#FF0000";
-        if (rank === "international grandmaster") return "#FF0000";
-        if (rank === "grandmaster") return "#FF0000";
-        if (rank === "international master") return "#FF8C00";
-        if (rank === "master") return "#FF8C00";
-        if (rank === "candidate master") return "#AA00AA";
-        if (rank === "expert") return "#0000FF";
-        if (rank === "specialist") return "#03A89E";
-        if (rank === "pupil") return "#008000";
-        if (rank === "newbie") return "#808080";
-    }
+  getCodeforcesColor(rank: string): string {
+    if (rank === "legendary grandmaster") return "#FF0000";
+    if (rank === "international grandmaster") return "#FF0000";
+    if (rank === "grandmaster") return "#FF0000";
+    if (rank === "international master") return "#FF8C00";
+    if (rank === "master") return "#FF8C00";
+    if (rank === "candidate master") return "#AA00AA";
+    if (rank === "expert") return "#0000FF";
+    if (rank === "specialist") return "#03A89E";
+    if (rank === "pupil") return "#008000";
+    if (rank === "newbie") return "#808080";
+  }
 
-    render() {
-        const color = this.getCodeforcesColor(this.user.rank);
-        return `<svg
+  render() {
+    const color = this.getCodeforcesColor(this.user.rank);
+    return `<svg
         width="${this.width}"
         height="${this.height}"
         viewBox="0 0 ${this.width} ${this.height}"
@@ -103,11 +103,10 @@ export class CodeforcesCard {
         <g transform="translate(135, 28)">
           <foreignObject width="200" height="100">
             <xhtml:span class="organization">
-              ${
-                  this.user.organization === undefined
-                      ? "No organization"
-                      : this.user.organization
-              }
+              ${this.user.organization === undefined
+        ? "No organization"
+        : this.user.organization
+      }
             </xhtml:span>
           </foreignObject>
         </g>
@@ -127,5 +126,5 @@ export class CodeforcesCard {
         </foreignObject>
       </g>
       </svg>`;
-    }
+  }
 }

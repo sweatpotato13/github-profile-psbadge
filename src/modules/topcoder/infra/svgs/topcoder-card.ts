@@ -1,33 +1,34 @@
+import { topcoderIcon } from "@src/shared/constants/icon";
 import { GetTopcoderBadgeDto } from "../../domain/dtos/get-topcoder-badge.dto";
 
 export class TopcoderCard {
-    width: number;
-    height: number;
-    user: GetTopcoderBadgeDto;
+  width: number;
+  height: number;
+  user: GetTopcoderBadgeDto;
 
-    constructor({ width = 420, height = 200, user }) {
-        this.width = width;
-        this.height = height;
-        this.user = user;
-    }
+  constructor({ width = 420, height = 200, user }) {
+    this.width = width;
+    this.height = height;
+    this.user = user;
+  }
 
-    getTopcoderColor(rating: number): string {
-        if (rating < 900) return "#999999";
-        else if (rating < 1200) return "#00A900";
-        else if (rating < 1500) return "#6666FF";
-        else if (rating < 2200) return "#DDCC00";
-        else return "#EE0000";
-    }
+  getTopcoderColor(rating: number): string {
+    if (rating < 900) return "#999999";
+    else if (rating < 1200) return "#00A900";
+    else if (rating < 1500) return "#6666FF";
+    else if (rating < 2200) return "#DDCC00";
+    else return "#EE0000";
+  }
 
-    render() {
-        let rating = 0;
-        this.user.ratingSummary.forEach(element => {
-            if (element.name == "Algorithm") {
-                rating = element.rating;
-            }
-        });
-        const color = this.getTopcoderColor(rating);
-        return `<svg
+  render() {
+    let rating = 0;
+    this.user.ratingSummary.forEach(element => {
+      if (element.name == "Algorithm") {
+        rating = element.rating;
+      }
+    });
+    const color = this.getTopcoderColor(rating);
+    return `<svg
         width="${this.width}"
         height="${this.height}"
         viewBox="0 0 ${this.width} ${this.height}"
@@ -100,7 +101,9 @@ export class TopcoderCard {
         fill="#FFFEFE"
       />
       <g class="profile" data-testid="card-title" transform="translate(20, 20)">
-      <image href="https://rathoresaab.files.wordpress.com/2016/06/images.png?w=225" x="-5" y="20" height="120" width="120"/>
+        <foreignObject class="icon" width="100" height="100" x="8" y="20">
+          ${topcoderIcon}
+        </foreignObject>
         <text x="135" y="20.5" class="header">${this.user.handle}</text>
         <text x="135" y="45.5" class="body">${this.user.quote}</text>
       </g>
@@ -115,5 +118,5 @@ export class TopcoderCard {
         </foreignObject>
       </g>
       </svg>`;
-    }
+  }
 }
