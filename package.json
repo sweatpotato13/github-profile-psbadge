@@ -43,7 +43,7 @@
         "release:version": "standard-version -- --release-as"
     },
     "dependencies": {
-        "@babel/core": "^7.14.3",
+        "@babel/core": "^7.14.8",
         "@nestjs/common": "^7.6.17",
         "@nestjs/config": "^0.6.3",
         "@nestjs/core": "^7.6.17",
