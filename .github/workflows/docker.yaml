@@ -9,6 +9,7 @@ on:
 
 jobs:
   build:
+    if: (github.event_name == 'push' || github.actor != 'dependabot')
     runs-on: ubuntu-latest
     steps:
       -
