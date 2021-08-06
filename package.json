@@ -43,7 +43,7 @@
         "release:version": "standard-version -- --release-as"
     },
     "dependencies": {
-        "@babel/core": "^7.14.3",
+        "@babel/core": "^7.15.0",
         "@nestjs/common": "^7.6.17",
         "@nestjs/config": "^0.6.3",
         "@nestjs/core": "^7.6.17",
@@ -75,7 +75,7 @@
     },
     "devDependencies": {
         "@commitlint/cli": "^12.1.4",
-        "@commitlint/config-conventional": "^12.1.4",
+        "@commitlint/config-conventional": "^13.1.0",
         "@nestjs/cli": "^7.6.0",
         "@nestjs/schematics": "^7.3.1",
         "@nestjs/testing": "^7.6.17",
@@ -93,7 +93,7 @@
         "git-branch-is": "^4.0.0",
         "husky": "^4.3.8",
         "jest": "27.0.3",
-        "lint-staged": "^11.0.1",
+        "lint-staged": "^11.1.1",
         "prettier": "^2.3.0",
         "standard-version": "^9.3.1",
         "supertest": "^6.1.3",
