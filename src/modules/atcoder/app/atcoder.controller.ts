@@ -1,5 +1,5 @@
 import { Controller, Get, Header, Inject, Param } from "@nestjs/common";
-import { ErrorResponse } from "@src/shared/models/responses";
+import { ErrorResponse, SuccessResponse } from "@src/shared/models/responses";
 import { ErrorCodes } from "@src/shared/constants";
 import { IAtcoderService } from "../domain/interfaces/atcoder.interface";
 
@@ -14,6 +14,11 @@ export class AtcoderController {
     async getBadge(@Param("handle") handle: string): Promise<any> {
         try {
             const result = await this._service.getBadge(handle);
+            new SuccessResponse(
+                "Succeeded in creating an Atcoder Badge.",{
+                    handle: handle
+                }
+            );
             return result;
         } catch (err) {
             return new ErrorResponse(

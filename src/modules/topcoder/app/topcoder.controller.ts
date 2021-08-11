@@ -1,5 +1,5 @@
 import { Controller, Get, Header, Inject, Param } from "@nestjs/common";
-import { ErrorResponse } from "@src/shared/models/responses";
+import { ErrorResponse, SuccessResponse } from "@src/shared/models/responses";
 import { ErrorCodes } from "@src/shared/constants";
 import { ITopcoderService } from "../domain/interfaces/topcoder.interface";
 
@@ -15,6 +15,11 @@ export class TopcoderController {
     async getBadge(@Param("handle") handle: string): Promise<any> {
         try {
             const result = await this._service.getBadge(handle);
+            new SuccessResponse(
+                "Succeeded in creating an Topcoder Badge.",{
+                    handle: handle
+                }
+            );
             return result;
         } catch (err) {
             return new ErrorResponse(
