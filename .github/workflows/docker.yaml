@@ -3,7 +3,8 @@ name: Github Actions
 on:
   push:
     branches:
-      - '**'
+      - 'master'
+      - 'dev'
     tags:
       - '**'
 
