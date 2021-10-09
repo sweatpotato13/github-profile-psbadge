@@ -29,16 +29,16 @@ $ docker-compose up -d
 ```
 https://api.cutewisp.com/cf/{handle}
 ```
-![SS](https://api.cutewisp.com/cf/CuteWisp)
+![SS](https://api.cutewisp.com/api/cf/CuteWisp)
 
 * atcoder
 ```
 https://api.cutewisp.com/ac/{handle}
 ```
-![SS](https://api.cutewisp.com/ac/CuteWisp)
+![SS](https://api.cutewisp.com/api/ac/CuteWisp)
 
 * Topcoder
 ```
 https://api.cutewisp.com/tc/{handle}
 ```
-![SS](https://api.cutewisp.com/tc/handle)
+![SS](https://api.cutewisp.com/api/tc/handle)
