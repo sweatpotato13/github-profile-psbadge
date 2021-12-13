@@ -27,18 +27,18 @@ $ docker-compose up -d
 
 * Codeforce
 ```
-https://api.cutewisp.com/cf/{handle}
+https://api.cutewisp.com/api/cf/{handle}
 ```
 ![SS](https://api.cutewisp.com/api/cf/CuteWisp)
 
 * atcoder
 ```
-https://api.cutewisp.com/ac/{handle}
+https://api.cutewisp.com/api/ac/{handle}
 ```
 ![SS](https://api.cutewisp.com/api/ac/CuteWisp)
 
 * Topcoder
 ```
-https://api.cutewisp.com/tc/{handle}
+https://api.cutewisp.com/api/tc/{handle}
 ```
 ![SS](https://api.cutewisp.com/api/tc/handle)
