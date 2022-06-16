@@ -27,18 +27,18 @@ $ docker-compose up -d
 
 * Codeforce
 ```
-https://api.cutewisp.com/api/cf/{handle}
+https://psbadge.herokuapp.com/cf/{handle}
 ```
-![SS](https://api.cutewisp.com/api/cf/CuteWisp)
+![SS](https://psbadge.herokuapp.com/cf/CuteWisp)
 
 * atcoder
 ```
-https://api.cutewisp.com/api/ac/{handle}
+https://psbadge.herokuapp.com/ac/{handle}
 ```
-![SS](https://api.cutewisp.com/api/ac/CuteWisp)
+![SS](https://psbadge.herokuapp.com/ac/CuteWisp)
 
 * Topcoder
 ```
-https://api.cutewisp.com/api/tc/{handle}
+https://psbadge.herokuapp.com/tc/{handle}
 ```
-![SS](https://api.cutewisp.com/api/tc/handle)
+![SS](https://psbadge.herokuapp.com/tc/handle)
