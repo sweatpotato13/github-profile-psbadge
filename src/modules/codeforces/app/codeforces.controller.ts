@@ -21,11 +21,11 @@ export class CodeforcesController {
                 }
             );
             return result;
-        } catch (err) {
+        } catch (error: any) {
             return new ErrorResponse(
                 "There was an error get badge",
                 ErrorCodes.BAD_REQUESTS,
-                err
+                error
             );
         }
     }

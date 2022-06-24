@@ -16,9 +16,9 @@ export class GetCodeforcesBadgeHandler
             const param: GetCodeforcesBadgeDto = { ...data.result[0] };
             const card = new CodeforcesCard({ user: param });
             return card.render();
-        } catch (err) {
-            this.loggerService.error(err.message);
-            throw err.message;
+        } catch (error: any) {
+            this.loggerService.error(error.message);
+            throw error.message;
         }
     }
 }
