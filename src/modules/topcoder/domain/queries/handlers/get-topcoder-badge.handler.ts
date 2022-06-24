@@ -16,9 +16,9 @@ export class GetTopcoderBadgeHandler
             const param: GetTopcoderBadgeDto = { ...data };
             const card = new TopcoderCard({ user: param });
             return card.render();
-        } catch (err) {
-            this.loggerService.error(err.message);
-            throw err.message;
+        } catch (error: any) {
+            this.loggerService.error(error.message);
+            throw error.message;
         }
     }
 }

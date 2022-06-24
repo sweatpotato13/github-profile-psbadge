@@ -16,7 +16,7 @@ export class CodeforcesService implements ICodeforcesService {
                 new GetCodeforcesBadgeQuery(data)
             );
             return ret;
-        } catch (error) {
+        } catch (error: any) {
             throw error.message;
         }
     }

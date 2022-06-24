@@ -17,7 +17,7 @@ export class AtcoderService implements IAtcoderService {
                 new GetAtcoderBadgeQuery(data)
             );
             return ret;
-        } catch (error) {
+        } catch (error: any) {
             throw error.message;
         }
     }

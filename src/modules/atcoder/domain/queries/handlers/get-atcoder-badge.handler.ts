@@ -16,9 +16,9 @@ export class GetAtcoderBadgeHandler
             const param: GetAtcoderBadgeDto = { ...data };
             const card = new AtcoderCard({ user: param });
             return card.render();
-        } catch (err) {
-            this.loggerService.error(err.message);
-            throw err.message;
+        } catch (error: any) {
+            this.loggerService.error(error.message);
+            throw error.message;
         }
     }
 }

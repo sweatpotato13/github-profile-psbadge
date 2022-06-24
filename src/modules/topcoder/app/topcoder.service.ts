@@ -16,7 +16,7 @@ export class TopcoderService implements ITopcoderService {
                 new GetTopcoderBadgeQuery(data)
             );
             return ret;
-        } catch (error) {
+        } catch (error: any) {
             throw error.message;
         }
     }
